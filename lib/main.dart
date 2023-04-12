@@ -9,9 +9,84 @@ class Player {
 }
 
 void main() {
-  var potato = Player(name: "potato");
+  runApp(const NewApp()); // 앱의 시작점. (Root)
+}
 
-  runApp(const App()); // 앱의 시작점. (Root)
+class NewApp extends StatefulWidget {
+  const NewApp({super.key});
+
+  @override
+  State<NewApp> createState() => _NewAppState();
+}
+
+class _NewAppState extends State<NewApp> {
+  int counter = 0;
+  List<int> numbers = [];
+
+  void onClickCounter() {
+    setState(() {
+      numbers.add(numbers.length);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
+      home: Scaffold(
+        backgroundColor: const Color(0xfff4eddb),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              MyLargeTitle(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyLargeTitle extends StatefulWidget {
+  const MyLargeTitle({
+    super.key,
+  });
+
+  @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+  @override
+  void initState() {
+    // 강제 아님.
+    // 한번만 실행되며, build 보다 먼저 실행된다.
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // 위젯이 스크린에서 제거될때 한번만 호출
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'My Large Title',
+      style: TextStyle(
+        fontSize: 30,
+        color: Theme.of(context).textTheme.titleLarge?.color,
+      ),
+    );
+  }
 }
 
 // 3개의 코어 위젯 중에 하나를 상속받아야한다.

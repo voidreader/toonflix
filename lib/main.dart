@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/home_screen.dart';
 import 'package:toonflix/widgets/button.dart';
 import 'package:toonflix/widgets/currencyCard.dart';
 
@@ -9,9 +10,33 @@ class Player {
 }
 
 void main() {
-  runApp(const NewApp()); // 앱의 시작점. (Root)
+  runApp(const Pomo()); // 앱의 시작점. (Root)
 }
 
+// * 포모도로 앱 만들기 2023.04.13
+class Pomo extends StatelessWidget {
+  const Pomo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        // ignore: deprecated_member_use
+        backgroundColor: const Color(0xFFE7626C),
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
+            fontSize: 20,
+          ),
+        ),
+        cardColor: const Color(0xFFF4EDDB),
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+// * Stateful 예제 만들어보기
 class NewApp extends StatefulWidget {
   const NewApp({super.key});
 
@@ -73,7 +98,7 @@ class _MyLargeTitleState extends State<MyLargeTitle> {
 
   @override
   void dispose() {
-    // 위젯이 스크린에서 제거될때 한번만 호출
+    // 위젯이 스크린에서 제거(Hide)될때 한번만 호출
     super.dispose();
   }
 

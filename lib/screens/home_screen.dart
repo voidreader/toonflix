@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+// * 포모도르 실습을 위한 스크린입니다.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

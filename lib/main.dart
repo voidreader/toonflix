@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/screens/home_screen.dart';
+import 'package:toonflix/screens/main_screen.dart';
 import 'package:toonflix/widgets/button.dart';
 import 'package:toonflix/widgets/currencyCard.dart';
 
@@ -10,8 +11,23 @@ class Player {
 }
 
 void main() {
-  runApp(const Pomo()); // 앱의 시작점. (Root)
+  // ApiService().getTodaysToons();
+  // runApp(const Pomo()); // 앱의 시작점. (Root)
+  runApp(const ToonFlix());
 }
+
+class ToonFlix extends StatelessWidget {
+  const ToonFlix({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: MainScreen(),
+    );
+  }
+}
+
+//////////////
 
 // * 포모도로 앱 만들기 2023.04.13
 class Pomo extends StatelessWidget {
